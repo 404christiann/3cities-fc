@@ -1,8 +1,8 @@
-# Onzio Prospect Template
+# 3 Cities FC — Onzio Sales Preview
 
-A reusable Next.js sales-preview template for semi-professional soccer clubs. It presents a premium public website and a shared-state admin concept in Starter and Pro versions without authentication, a database, payments, or persistent data.
+An interactive concept preview for 3 Cities Football Club (Tri-Cities, WA), generated from the reusable Onzio prospect template. It presents a premium public website and a shared-state admin concept in Starter and Pro versions, without authentication, a database, payments, or persistent data.
 
-The master runs against the fictional Meridian United reference configuration. Every real prospect must be generated as a separate repository and deployment; the master is never customized in place.
+This is an independent snapshot, not the reusable template. It does not automatically receive later changes made to the master template.
 
 ## Local development
 
@@ -13,21 +13,19 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000). Pro is the default experience. Use `?tier=starter` to review Starter explicitly.
 
-## Prospect boundary
+## What's real vs. sample
 
-All prospect-specific information belongs in:
+- **Real:** club name, crest, city (Tri-Cities, WA: Kennewick, Pasco, Richland), contact email, league/venue facts (UPSL Washington Premier Division, Fran Rish Stadium), 7 real club photos, a real player-cutout photo, 2 real merchandise products (with real transparent front + back photos), and 3 real governing-body/league affiliation marks (US Soccer, FIFA, UPSL).
+- **Sample only:** roster, staff, fixtures/results, league standings numbers, and sponsor names — opponent clubs are invented, not this club's actual current opponents. The 7 sponsor logo images are real files but borrowed from another club as placeholder art; the names paired with them are fictional. See `CLAUDE.md` for the full explanation.
 
-- `src/config/clubs/<club-slug>/`
-- `public/prospect/`
+## Club-specific configuration
+
+All club-specific information lives in:
+
+- `src/config/clubs/3cities-fc/`
 - The single active import in `src/config/prospect.ts`
 
-Identity-driven writing belongs in `ProspectConfig.copy`. Shared components must not contain club names, cities, slogans, seasons, product claims, or brand colors.
-
-If a new prospect requires editing a shared component, treat it as a template defect and fix the master before generating the snapshot.
-
-## Optional features
-
-Standings, a real club group photo, roster nationality flags, and governing-body/league affiliation marks are all config-driven and off by default — most prospects won't need them. Meridian's reference config populates all of them so they're exercised in the template's own build. See `CLAUDE.md` for the field names and where each renders.
+This snapshot also has the optional **Standings** feature enabled (most future prospects won't), and a `Product.featured` flag and `Branding.detailColor` field that were added to the master template during this build — see `CLAUDE.md` for details on where that code lives and how to change it.
 
 ## Validation
 
@@ -38,4 +36,6 @@ npm run validate
 
 `validate:template` confirms the active configuration, referenced assets, Pro default, prospect-driven metadata, noindex policy, and shared-code brand isolation. `validate` also runs Next.js type generation, strict TypeScript, ESLint, and a production build.
 
-See [docs/NEW_PROSPECT.md](docs/NEW_PROSPECT.md) for the complete Codex-assisted workflow and [docs/PROSPECT_INTAKE.example.yaml](docs/PROSPECT_INTAKE.example.yaml) for the intake shape.
+## Publishing status
+
+Pushed to `git@github.com:404christiann/3cities-fc.git`. Vercel deployment is being completed manually by Christian via the dashboard. Full intake, research sources, and round-by-round review history live outside this repo in the sibling `intake/` folder (`PROSPECT_INTAKE.yaml`).
